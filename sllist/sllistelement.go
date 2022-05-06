@@ -31,3 +31,10 @@ func (element *SinglyLinkedListElementInt) GetEnd() *SinglyLinkedListElementInt 
 	}
 	return element.next.GetEnd()
 }
+
+// Hängt ein Element mit der gegeben Zahl als key ans Ende an.
+func (element *SinglyLinkedListElementInt) Append(key int) {
+	last := element.GetEnd()
+	last.key = key
+	last.SetNext(NewSinglyLinkedListElementInt())
+}

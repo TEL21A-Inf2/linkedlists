@@ -47,3 +47,25 @@ func ExampleSinglyLinkedListElementInt_GetLast() {
 	// true
 	// true
 }
+
+func ExampleSinglyLinkedListElementInt_Append() {
+
+	// Ein einzelnes Listenelement erzeugen.
+	l1 := NewSinglyLinkedListElementInt()
+
+	// Nacheinander drei Zahlen anhängen.
+	l1.Append(42)
+	l1.Append(25)
+	l1.Append(38)
+
+	// Die Elemente sollten nun über l1 erreichbar sein:
+	fmt.Println(l1.key)
+	fmt.Println(l1.next.key)
+	fmt.Println(l1.next.next.key)
+
+	// Output:
+	// 42
+	// 25
+	// 38
+
+}
