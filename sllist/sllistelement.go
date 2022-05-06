@@ -24,10 +24,10 @@ func (element *SinglyLinkedListElementInt) SetNext(next *SinglyLinkedListElement
 }
 
 // Liefert das Ende der Liste.
-func (element SinglyLinkedListElementInt) GetEnd() *SinglyLinkedListElementInt {
+func (element *SinglyLinkedListElementInt) GetEnd() *SinglyLinkedListElementInt {
 	// Das Ende ist das erste Element, das keinen Nachfolger hat.
 	if element.IsEmpty() {
-		return &element
+		return element
 	}
 	return element.next.GetEnd()
 }
