@@ -25,3 +25,18 @@ func (list SinglyLinkedListInt) String() string {
 func (list *SinglyLinkedListInt) Append(value int) {
 	list.head.Append(value)
 }
+
+// Fügt ein Element ein.
+func (list *SinglyLinkedListInt) Insert(pos, value int) {
+	list.head = list.head.Insert(pos, value)
+}
+
+// Prüft, ob die Liste leer ist.
+func (list SinglyLinkedListInt) IsEmpty() bool {
+	return list.head.IsEmpty()
+}
+
+// Liefert den Wert an der Stelle pos.
+func (list SinglyLinkedListInt) GetValue(pos int) (int, error) {
+	return list.head.GetValue(pos)
+}
