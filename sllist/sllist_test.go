@@ -70,3 +70,17 @@ func ExampleSinglyLinkedListInt_GetValue() {
 	// 0 ungültige Position für Listenzugriff
 	// 0 ungültige Position für Listenzugriff
 }
+
+func ExampleSinglyLinkedListInt_Length() {
+	l1 := NewSinglyLinkedListInt()
+	fmt.Println(l1.Length())
+	l1.Append(42)
+	fmt.Println(l1.Length())
+	l1.Append(38)
+	fmt.Println(l1.Length())
+
+	// Output:
+	// 0
+	// 1
+	// 2
+}

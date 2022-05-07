@@ -40,3 +40,8 @@ func (list SinglyLinkedListInt) IsEmpty() bool {
 func (list SinglyLinkedListInt) GetValue(pos int) (int, error) {
 	return list.head.GetValue(pos)
 }
+
+// Liefert die Länge der Liste.
+func (list SinglyLinkedListInt) Length() int {
+	return list.head.Length()
+}

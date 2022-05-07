@@ -84,6 +84,14 @@ func (element *SinglyLinkedListElementInt) Insert(pos, value int) *SinglyLinkedL
 	return element
 }
 
+// Liefert die Länge der Liste.
+func (element SinglyLinkedListElementInt) Length() int {
+	if element.IsEmpty() {
+		return 0
+	}
+	return 1 + element.next.Length()
+}
+
 // String-Ausgabe von Elementen.
 func (element SinglyLinkedListElementInt) String() string {
 	return fmt.Sprintf("%v", element.key)
