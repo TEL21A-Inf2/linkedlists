@@ -67,5 +67,4 @@ func ExampleSinglyLinkedListElementInt_Append() {
 	// 42
 	// 25
 	// 38
-
 }
