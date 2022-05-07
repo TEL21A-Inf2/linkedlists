@@ -105,14 +105,19 @@ func ExampleSinglyLinkedListElementInt_Insert() {
 	l1.Insert(2, 100)
 	l1.Insert(3, 1000)
 
+	// Beim Insert an Stelle 0 muss das Listenelement neu zugewiesen werden.
+	l1 = l1.Insert(0, 55)
+
 	// Listenelemente ausgeben:
 	fmt.Println(l1.key)
 	fmt.Println(l1.next.key)
 	fmt.Println(l1.next.next.key)
 	fmt.Println(l1.next.next.next.key)
 	fmt.Println(l1.next.next.next.next.key)
+	fmt.Println(l1.next.next.next.next.next.key)
 
 	// Output:
+	// 55
 	// 42
 	// 25
 	// 100
