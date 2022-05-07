@@ -93,3 +93,29 @@ func ExampleSinglyLinkedListElementInt_GetValue() {
 	// 0 ungültige Position für Listenzugriff
 	// 0 ungültige Position für Listenzugriff
 }
+
+func ExampleSinglyLinkedListElementInt_Insert() {
+	// Eine Liste mit ein paar Werten erzeugen.
+	l1 := NewSinglyLinkedListElementInt()
+	l1.Append(42)
+	l1.Append(25)
+	l1.Append(38)
+
+	// Insert an den Stellen 2 und 3 aufrufen.
+	l1.Insert(2, 100)
+	l1.Insert(3, 1000)
+
+	// Listenelemente ausgeben:
+	fmt.Println(l1.key)
+	fmt.Println(l1.next.key)
+	fmt.Println(l1.next.next.key)
+	fmt.Println(l1.next.next.next.key)
+	fmt.Println(l1.next.next.next.next.key)
+
+	// Output:
+	// 42
+	// 25
+	// 100
+	// 1000
+	// 38
+}
