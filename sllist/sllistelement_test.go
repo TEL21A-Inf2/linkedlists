@@ -59,9 +59,9 @@ func ExampleSinglyLinkedListElementInt_Append() {
 	l1.Append(38)
 
 	// Die Elemente sollten nun über l1 erreichbar sein:
-	fmt.Println(l1.key)
-	fmt.Println(l1.next.key)
-	fmt.Println(l1.next.next.key)
+	fmt.Println(l1)
+	fmt.Println(l1.next)
+	fmt.Println(l1.next.next)
 
 	// Output:
 	// 42
@@ -109,12 +109,12 @@ func ExampleSinglyLinkedListElementInt_Insert() {
 	l1 = l1.Insert(0, 55)
 
 	// Listenelemente ausgeben:
-	fmt.Println(l1.key)
-	fmt.Println(l1.next.key)
-	fmt.Println(l1.next.next.key)
-	fmt.Println(l1.next.next.next.key)
-	fmt.Println(l1.next.next.next.next.key)
-	fmt.Println(l1.next.next.next.next.next.key)
+	fmt.Println(l1)
+	fmt.Println(l1.next)
+	fmt.Println(l1.next.next)
+	fmt.Println(l1.next.next.next)
+	fmt.Println(l1.next.next.next.next)
+	fmt.Println(l1.next.next.next.next.next)
 
 	// Output:
 	// 55

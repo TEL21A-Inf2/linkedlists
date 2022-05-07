@@ -9,7 +9,7 @@ func ExampleSinglyLinkedListInt_Append() {
 	l1.Append(38)
 
 	for current := l1.head; !current.IsEmpty(); current = current.next {
-		fmt.Println(current.key)
+		fmt.Println(current)
 	}
 
 	// Output:

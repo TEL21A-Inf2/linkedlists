@@ -1,6 +1,9 @@
 package sllist
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 // Datenstruktur für Elemente einer einfach verketteten Liste.
 // Die Elemente dieser Liste enthalten ganze Zahlen als Werte.
@@ -79,4 +82,9 @@ func (element *SinglyLinkedListElementInt) Insert(pos, value int) *SinglyLinkedL
 	// element.next lösen.
 	element.next.Insert(pos-1, value)
 	return element
+}
+
+// String-Ausgabe von Elementen.
+func (element SinglyLinkedListElementInt) String() string {
+	return fmt.Sprintf("%v", element.key)
 }
