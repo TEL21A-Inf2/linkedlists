@@ -1,5 +1,7 @@
 package sllist
 
+import "errors"
+
 // Datenstruktur für Elemente einer einfach verketteten Liste.
 // Die Elemente dieser Liste enthalten ganze Zahlen als Werte.
 type SinglyLinkedListElementInt struct {
@@ -37,4 +39,15 @@ func (element *SinglyLinkedListElementInt) Append(key int) {
 	last := element.GetEnd()
 	last.key = key
 	last.SetNext(NewSinglyLinkedListElementInt())
+}
+
+// Liefert den Wert des pos-ten Elements.
+func (element *SinglyLinkedListElementInt) GetValue(pos int) (int, error) {
+	if element.IsEmpty() {
+		return 0, errors.New("ungültige Position für Listenzugriff")
+	}
+	if pos == 0 {
+		return element.key, nil
+	}
+	return element.next.GetValue(pos - 1)
 }
