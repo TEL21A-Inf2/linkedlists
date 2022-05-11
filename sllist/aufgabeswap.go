@@ -17,5 +17,35 @@ Passen Sie auch die Tests an bzw. erweitern Sie diese.
 */
 
 func (list *SinglyLinkedListInt) Swap(pos1, pos2 int) {
-	// TODO
+	// Wir holen uns die Elemente an den Stellen pos1 und pos2
+	// und nennen sie B und E:
+	B := list.head.GetElement(pos1)
+	E := list.head.GetElement(pos2)
+
+	// Nun holen wir uns die Vorgänger und nennen sie A und D:
+	A := list.head.GetElement(pos1 - 1)
+	D := list.head.GetElement(pos2 - 1)
+
+	// Die Nachfolger nennen wir C und F:
+	C := list.head.GetElement(pos1 + 1)
+	F := list.head.GetElement(pos2 + 1)
+
+	/* Wir haben jetzt folgende Listenstruktur:
+
+	... -> A -> B -> C -> ... -> D -> E -> F -> ...
+
+	B und E sollen getauscht werden. Die nötigen Pointer-Verbiegungen
+	können wir jetzt ganz leicht durchführen:
+	*/
+	B.next = F
+	E.next = C
+	D.next = B
+
+	// Sonderfall: Falls pos1 == 0, dann ist A == nil.
+	// Dies müssen wir prüfen und in diesem Fall stattdessen list.head anpassen:
+	if A != nil {
+		A.next = E
+	} else {
+		list.head = E
+	}
 }
