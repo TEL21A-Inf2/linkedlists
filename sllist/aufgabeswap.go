@@ -1,5 +1,7 @@
 package sllist
 
+import "errors"
+
 /*
 Aufgabe 1: Implementieren Sie die Methode Swap() für den Datentyp SinglyLinkedListInt.
 
@@ -16,7 +18,12 @@ Positionen und liefern Sie einen Wert vom Typ error (vgl. die GetValue()-Methode
 Passen Sie auch die Tests an bzw. erweitern Sie diese.
 */
 
-func (list *SinglyLinkedListInt) Swap(pos1, pos2 int) {
+func (list *SinglyLinkedListInt) Swap(pos1, pos2 int) error {
+	length := list.Length()
+	if pos1 < 0 || pos1 >= length || pos2 < 0 || pos2 >= length {
+		return errors.New("error: swap positions out of range")
+	}
+
 	// Wir holen uns die Elemente an den Stellen pos1 und pos2
 	// und nennen sie B und E:
 	B := list.head.GetElement(pos1)
@@ -48,4 +55,5 @@ func (list *SinglyLinkedListInt) Swap(pos1, pos2 int) {
 	} else {
 		list.head = E
 	}
+	return nil
 }

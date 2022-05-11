@@ -20,8 +20,18 @@ func ExampleSinglyLinkedListElementInt_Swap() {
 	l1.Swap(0, 4)
 	fmt.Println(l1)
 
+	err1 := l1.Swap(-1, 2)
+	fmt.Println(err1)
+	err2 := l1.Swap(0, 10)
+	fmt.Println(err2)
+	err3 := l1.Swap(-1, 10)
+	fmt.Println(err3)
+
 	// Output:
 	// [ 42 25 77 50 103 38 ]
 	// [ 42 25 103 50 77 38 ]
 	// [ 77 25 103 50 42 38 ]
+	// error: swap positions out of range
+	// error: swap positions out of range
+	// error: swap positions out of range
 }
