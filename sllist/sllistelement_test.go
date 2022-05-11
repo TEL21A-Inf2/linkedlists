@@ -28,7 +28,7 @@ func ExampleSinglyLinkedListElementInt_IsEmpty() {
 	// true
 }
 
-func ExampleSinglyLinkedListElementInt_GetLast() {
+func ExampleSinglyLinkedListElementInt_GetEnd() {
 
 	// Eine Liste erzeugen.
 	l1 := NewSinglyLinkedListElementInt()
@@ -43,6 +43,25 @@ func ExampleSinglyLinkedListElementInt_GetLast() {
 	fmt.Println(*l3.GetEnd() == *l3)
 
 	// Output:
+	// true
+	// true
+	// true
+}
+
+func ExampleSinglyLinkedListElementInt_GetElement() {
+	l1 := NewSinglyLinkedListElementInt()
+	l2 := NewSinglyLinkedListElementInt()
+	l3 := NewSinglyLinkedListElementInt()
+	l1.SetNext(l2)
+	l2.SetNext(l3)
+
+	fmt.Println(l1.GetElement(-1) == nil)
+	fmt.Println(*l1.GetElement(0) == *l1)
+	fmt.Println(*l1.GetElement(1) == *l2)
+	fmt.Println(l1.GetElement(2) == nil)
+
+	// Output:
+	// true
 	// true
 	// true
 	// true

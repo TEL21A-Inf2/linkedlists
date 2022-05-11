@@ -28,13 +28,28 @@ func (element *SinglyLinkedListElementInt) SetNext(next *SinglyLinkedListElement
 	element.next = next
 }
 
-// Liefert das Ende der Liste.
+// Hilfsfunktion: Liefert einen Pointer auf das Ende der Liste.
+// Ist nicht für den Gebrauch durch den Client-Programmierer bestimmt,
+// aber für den internen Gebrauch nützlich.
 func (element *SinglyLinkedListElementInt) GetEnd() *SinglyLinkedListElementInt {
 	// Das Ende ist das erste Element, das keinen Nachfolger hat.
 	if element.IsEmpty() {
 		return element
 	}
 	return element.next.GetEnd()
+}
+
+// Hilfsfunktion: Liefert einen Pointer auf das n-te Element der Liste.
+// Ist nicht für den Gebrauch durch den Client-Programmierer bestimmt,
+// aber für den internen Gebrauch nützlich.
+func (element *SinglyLinkedListElementInt) GetElement(n int) *SinglyLinkedListElementInt {
+	if n < 0 || element.IsEmpty() {
+		return nil
+	}
+	if n == 0 {
+		return element
+	}
+	return element.next.GetElement(n - 1)
 }
 
 // Hängt ein Element mit der gegeben Zahl als key ans Ende an.
@@ -46,13 +61,11 @@ func (element *SinglyLinkedListElementInt) Append(key int) {
 
 // Liefert den Wert des pos-ten Elements.
 func (element *SinglyLinkedListElementInt) GetValue(pos int) (int, error) {
-	if element.IsEmpty() {
+	el := element.GetElement(pos)
+	if el == nil {
 		return 0, errors.New("ungültige Position für Listenzugriff")
 	}
-	if pos == 0 {
-		return element.key, nil
-	}
-	return element.next.GetValue(pos - 1)
+	return el.key, nil
 }
 
 // Fügt ein Element mit dem gegebenen Wert an Stelle pos ein.
