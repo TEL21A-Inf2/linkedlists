@@ -109,8 +109,8 @@ func ExampleSinglyLinkedListElementInt_GetValue() {
 	// 42 <nil>
 	// 25 <nil>
 	// 38 <nil>
-	// 0 ungültige Position für Listenzugriff
-	// 0 ungültige Position für Listenzugriff
+	// 0 error: position out of range
+	// 0 error: position out of range
 }
 
 func ExampleSinglyLinkedListElementInt_Insert() {
