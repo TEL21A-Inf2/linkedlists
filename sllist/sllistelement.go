@@ -63,7 +63,7 @@ func (element *SinglyLinkedListElementInt) Append(key int) {
 func (element *SinglyLinkedListElementInt) GetValue(pos int) (int, error) {
 	el := element.GetElement(pos)
 	if el == nil {
-		return 0, errors.New("ungültige Position für Listenzugriff")
+		return 0, errors.New("error: position out of range")
 	}
 	return el.key, nil
 }
