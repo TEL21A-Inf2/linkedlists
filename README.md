@@ -26,3 +26,16 @@ implementiert.
     - Definieren Sie die neuen Datentypen idealerweise in einem Package `dllist` in einem
       entsprechenden Ordner und binden Sie die in der `main()` nach dem Vorbild der
       einfach verketteten Liste ein.
+
+## Lösungen
+
+Der Branch `loesungen` in diesem Repository enthält bereits eine Lösung für die
+`Swap()`-Aufgabe. Wer nicht weiter weiß oder die eigene Lösung abgleichen will,
+kann dies über den Branch `loesungen` tun.
+
+Die Lösung in diesem Branch ist allerdings noch nicht optimal, sie iteriert insgesamt
+6 Mal über die Liste, um die Aufgabe zu erfüllen. Dies geht auch wesentlich schneller
+mit nur einem Durchlauf. Sie können also auch probieren, ob Sie diese Lösung
+verbessern können.
+
+Die Lösungen für die weiteren Aufgaben folgen dann später auch in diesem Branch.
