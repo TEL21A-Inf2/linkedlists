@@ -20,8 +20,12 @@ func ExampleSinglyLinkedListElementInt_Swap() {
 	l1.Swap(0, 4)
 	fmt.Println(l1)
 
+	l1.Swap(3, 4)
+	fmt.Println(l1)
+
 	// Output:
 	// [ 42 25 77 50 103 38 ]
 	// [ 42 25 103 50 77 38 ]
 	// [ 77 25 103 50 42 38 ]
+	// [ 77 25 103 42 50 38 ]
 }
