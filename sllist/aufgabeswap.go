@@ -17,5 +17,50 @@ Passen Sie auch die Tests an bzw. erweitern Sie diese.
 */
 
 func (list *SinglyLinkedListInt) Swap(pos1, pos2 int) {
-	// TODO
+	if pos1 > pos2 {
+		list.Swap(pos2, pos1)
+		return
+	}
+
+	var A, B, C, D, E, F *SinglyLinkedListElementInt
+
+	pos := 0
+	for current := list.head; !current.IsEmpty(); current = current.next {
+		if pos == pos1 {
+			B = current
+		}
+		if pos == pos2 {
+			E = current
+		}
+		if pos == pos1-1 {
+			A = current
+		}
+		if pos == pos2-1 {
+			D = current
+		}
+		if pos == pos1+1 {
+			C = current
+		}
+		if pos == pos2+1 {
+			F = current
+		}
+		pos++
+	}
+
+	// A := list.head.GetElement(pos1 - 1) // == nil, falls pos1 == 0
+	// B := list.head.GetElement(pos1)
+	// C := list.head.GetElement(pos1 + 1)
+	// D := list.head.GetElement(pos2 - 1)
+	// E := list.head.GetElement(pos2)
+	// F := list.head.GetElement(pos2 + 1)
+
+	B.SetNext(F)
+	E.SetNext(C)
+	D.SetNext(B)
+
+	if A != nil {
+		A.next = E
+	} else {
+		list.head = E
+	}
 }
