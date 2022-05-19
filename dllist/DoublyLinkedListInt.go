@@ -85,3 +85,54 @@ func (list DoublyLinkedListInt) String() string {
 	result += "]"
 	return result
 }
+
+// Vertauscht die Elemente an den Positionen pos1 und pos2.
+func (list *DoublyLinkedListInt) Swap(pos1, pos2 int) error {
+	if pos1 == pos2 {
+		return nil
+	}
+	if pos1 > pos2 {
+		return list.Swap(pos2, pos1)
+	}
+
+	B := list.getElement(pos1)
+	if B == nil {
+		return errors.New("list position out of bounds")
+	}
+	A := B.previous
+	C := B.next
+
+	E := list.getElement(pos2)
+	if E == nil {
+		return errors.New("list position out of bounds")
+	}
+	D := E.previous
+	F := E.next
+
+	if pos1 == pos2-1 {
+
+		// Listenstruktur:
+		// A <-> B <-> E <-> F
+
+		B.next = F
+		F.previous = B
+		E.next = B
+		B.previous = E
+		A.next = E
+		E.previous = A
+	} else {
+
+		// Listenstruktur:
+		// A <-> B <-> C <-> ... <-> D <-> E <-> F
+
+		B.next = F
+		F.previous = B
+		B.previous = D
+		D.next = B
+		E.next = C
+		C.previous = E
+		A.next = E
+		E.previous = A
+	}
+	return nil
+}
